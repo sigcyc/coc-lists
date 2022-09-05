@@ -20,6 +20,7 @@ import SessionList from './session'
 import Tags from './tags'
 import Windows from './windows'
 import Words from './words'
+import Workspaces from './workspaces'
 
 export async function activate(context: ExtensionContext): Promise<void> {
   let { subscriptions } = context
@@ -92,5 +93,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
   }
   if (!isDisabled('words')) {
     subscriptions.push(listManager.registerList(new Words(nvim)))
+  }
+  if (!isDisabled('workspaces')) {
+    subscriptions.push(listManager.registerList(new Workspaces(nvim)))
   }
 }
