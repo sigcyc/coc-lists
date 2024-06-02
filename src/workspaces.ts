@@ -13,8 +13,8 @@ export default class Workspaces extends BasicList {
      super(nvim)
      this.addAction('cd', item => {
         console.log(item.data)
-        nvim.command(`cd ${item.data.workspace_path}`, true)
-        nvim.command(`let t:wd = getcwd()`, true)
+        nvim.command(`tcd ${item.data.workspace_path}`, true)
+        nvim.command(`Neotree`, true)
      })
      this.addLocationActions()
   }
